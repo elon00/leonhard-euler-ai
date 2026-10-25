@@ -1,0 +1,58 @@
+{
+  "mcpServers": {
+    "leonhard-euler-ai": {
+      "command": "cargo",
+      "args": [
+        "run",
+        "--release",
+        "--quiet"
+      ],
+      "env": {
+        "RUST_LOG": "info",
+        "TITAN_PROTOCOL": "EULER",
+        "FIPS_203_LEVEL": "ML-KEM-768",
+        "FIPS_204_LEVEL": "ML-DSA-65"
+      },
+      "tools": [
+        {
+          "name": "solve_euler_lagrange_equations",
+          "description": "Computes extremal action path solutions in variational mechanics and geodesic geometry",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "action_functional": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "action_functional"
+            ]
+          }
+        },
+        {
+          "name": "verify_topological_euler_characteristic",
+          "description": "Calculates Eulerian polyhedral characteristics (V - E + F = 2) and graph cycle traverses",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "vertices": {
+                "type": "integer"
+              },
+              "edges": {
+                "type": "integer"
+              },
+              "faces": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "vertices",
+              "edges",
+              "faces"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
